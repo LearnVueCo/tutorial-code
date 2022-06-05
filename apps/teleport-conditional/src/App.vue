@@ -36,14 +36,16 @@ const isDesktop = breakpoints.greater('md')
 
   <Teleport to="#toc" :disabled="isDesktop">
     <component :is="isDesktop ? 'aside' : 'div'" class="toc">
-      <h4>Table of Contents</h4>
-      <nav>
-        <ul>
-          <li v-for="i in 5">
-            <a :href="`#section-${i}`">Section {{ i }}</a>
-          </li>
-        </ul>
-      </nav>
+      <div>
+        <h4>Table of Contents</h4>
+        <nav>
+          <ul>
+            <li v-for="i in 5">
+              <a :href="`#section-${i}`">Section {{ i }}</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </component>
   </Teleport>
 </template>
@@ -66,6 +68,11 @@ html {
 
 .toc {
   min-width: 200px;
+}
+
+aside div {
+  position: sticky;
+  top: 40px;
 }
 
 nav ul {
